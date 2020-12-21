@@ -597,18 +597,24 @@ class COCOeval:
 
             return stats
 
-        def _summarizeKps():
-            stats = np.zeros((10,))
+        def _summarizeKps():            
+            stats = np.zeros((16,))
             stats[0] = _summarize(1, maxDets=20)
             stats[1] = _summarize(1, maxDets=20, iouThr=.5)
             stats[2] = _summarize(1, maxDets=20, iouThr=.75)
             stats[3] = _summarize(1, maxDets=20, areaRng='medium')
             stats[4] = _summarize(1, maxDets=20, areaRng='large')
-            stats[5] = _summarize(0, maxDets=20)
-            stats[6] = _summarize(0, maxDets=20, iouThr=.5)
-            stats[7] = _summarize(0, maxDets=20, iouThr=.75)
-            stats[8] = _summarize(0, maxDets=20, areaRng='medium')
-            stats[9] = _summarize(0, maxDets=20, areaRng='large')
+            stats[5] = _summarize(1, maxDets=20, areaRng='large', iouThr=.5)
+            stats[6] = _summarize(1, maxDets=20, areaRng='large', iouThr=.75)
+            stats[7] = _summarize(1, maxDets=20, areaRng='large', iouThr=.95)
+            stats[8] = _summarize(0, maxDets=20)
+            stats[9] = _summarize(0, maxDets=20, iouThr=.5)
+            stats[10] = _summarize(0, maxDets=20, iouThr=.75)
+            stats[11] = _summarize(0, maxDets=20, areaRng='medium')
+            stats[12] = _summarize(0, maxDets=20, areaRng='large')
+            stats[13] = _summarize(0, maxDets=20, areaRng='large', iouThr=.5)
+            stats[14] = _summarize(0, maxDets=20, areaRng='large', iouThr=.75)
+            stats[15] = _summarize(0, maxDets=20, areaRng='large', iouThr=.95)
             return stats
 
         if not self.eval:
